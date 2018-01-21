@@ -1,5 +1,6 @@
 import React from 'react';
+import TextInput from './components/TextInput';
 
-const componentName = () => <h1>Hello</h1>;
+const componentName = () => <TextInput>Hello</TextInput>;
 
 export default componentName;
