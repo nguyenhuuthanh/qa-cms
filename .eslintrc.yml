@@ -9,13 +9,19 @@ parserOptions:
 
 extends:
   - airbnb
+  - plugin:flowtype/recommended
   - prettier
+  - prettier/flowtype
   - prettier/react
 
 plugins:
-  - react
   - prettier
-  - eslint-comments  
+  - flowtype
+
+settings:
+  import/resolver: webpack
+  flowtype:
+    onlyFilesWithFlowAnnotation: true
 
 env:
   es6: true
@@ -40,24 +46,45 @@ rules:
   func-names: off
   linebreak-style: [off] # rule still works with `linebreak-style: off`
   no-implicit-coercion: error
-  padding-line-between-statements: [
-      error,
-      { blankLine: always, prev: [const, let, var], next: "*" },
-      { blankLine: always, prev: "*", next: [const, let, var] },
-      { blankLine: any,    prev: [const, let, var], next: [const, let, var] },
-      { blankLine: always, prev: "*", next: return },
-      { blankLine: always, prev: "*", next: [case, default] },
-      { blankLine: always, prev: [const, let, var, block, block-like], next: [block, block-like] },
-      { blankLine: always, prev: directive, next: "*" },
-      { blankLine: any,    prev: directive, next: directive },
-  ]
+  padding-line-between-statements:
+    - error
+    - blankLine: always
+      prev: [const, let, var]
+      next: "*" 
+    - blankLine: always
+      prev: "*"
+      next: [const, let, var]
+    - blankLine: any
+      prev: [const, let, var]
+      next: [const, let, var]
+    - blankLine: always
+      prev: "*"
+      next: return
+    - blankLine: always
+      prev: "*"
+      next: [case, default]
+    - blankLine: always
+      prev: [const, let, var, block, block-like]
+      next: [block, block-like]
+    - blankLine: always
+      prev: directive
+      next: "*"
+    - blankLine: any
+      prev: directive
+      next: directive
 
-  jsx-a11y/anchor-is-valid: [ warn,
-      { components: [Link], specialLink: [to], aspects: [noHref, invalidHref, preferButton] }
-  ]
-  jsx-a11y/label-has-for: [ warn,
-      { components: [label], required: {some: [ nesting, id ]} }
-  ]
+  jsx-a11y/anchor-is-valid:
+    - warn
+    - components: [Link]
+      specialLink: [to]
+      aspects: [noHref, invalidHref, preferButton]
+      
+  jsx-a11y/label-has-for:
+    - warn
+    - components: [label]
+      required: 
+        some: [ nesting, id ]
+
   jsx-a11y/no-noninteractive-element-to-interactive-role: error
   jsx-a11y/img-redundant-alt: off
   jsx-a11y/click-events-have-key-events: off
@@ -72,9 +99,3 @@ rules:
   react/no-find-dom-node: error
   react/default-props-match-prop-types: off # rule break linting in case of invalid declaration
                                             # very difficult to detect problem so just turn it off
-
-  eslint-comments/disable-enable-pair: error
-  eslint-comments/no-duplicate-disable: error
-  eslint-comments/no-unlimited-disable: error
-  eslint-comments/no-unused-disable: warn
-  eslint-comments/no-unused-enable: warn
