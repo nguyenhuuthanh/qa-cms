@@ -23,5 +23,7 @@ npm run storybook // storybook URL: http://localhost:9001
  - [Redux-saga](https://github.com/redux-saga/redux-saga)
  - [Axios](https://github.com/axios/axios)
  - [Reselect](https://github.com/reactjs/reselect)
+ - [StoryBook](https://github.com/storybooks/storybook)
+ - [Bulma](https://bulma.io/)
  - ...and other libraries.
  
