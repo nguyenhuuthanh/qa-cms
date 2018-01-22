@@ -1,4 +1,21 @@
 {
-  "presets": ["flow", "react", "env"],
-  "plugins": ["transform-object-rest-spread"]
+  "presets": [
+    "flow",
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "Safari >= 7",
+            "Firefox > 20",
+            "Chrome >= 20",
+            "Explorer >= 11"
+          ]
+        },
+        "node": true
+      }
+    ]
+  ],
+  "plugins": ["babel-plugin-transform-object-rest-spread"]
 }
