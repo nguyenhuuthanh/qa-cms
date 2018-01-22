@@ -19,7 +19,9 @@ plugins:
   - flowtype
 
 settings:
-  import/resolver: webpack
+  import/resolver:
+    webpack:
+      config: webpack.config.js
   flowtype:
     onlyFilesWithFlowAnnotation: true
 

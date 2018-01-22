@@ -6,7 +6,7 @@ import idGenerator from '../../utils/idGenerator';
 type Props = {
   id?: string,
   label?: string,
-  placeHolder?: string,
+  placeholder?: string,
   className?: string,
   errorMessage?: string,
   successMessage?: string,
@@ -20,7 +20,7 @@ const TextInput = ({
   valid,
   errorMessage,
   successMessage,
-  placeHolder,
+  placeholder,
   className,
   value,
   ...rest
@@ -49,7 +49,7 @@ const TextInput = ({
           id={id}
           className={inputClass}
           type="text"
-          placeHolder={placeHolder}
+          placeholder={placeholder}
           value={value}
         />
       </div>
@@ -60,7 +60,7 @@ const TextInput = ({
 };
 
 TextInput.defaultProps = {
-  placeHolder: 'Text input',
+  placeholder: 'Text input',
   id: idGenerator(),
   errorMessage: '',
   valid: false,

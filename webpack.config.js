@@ -11,7 +11,11 @@ module.exports = () => ({
     path: path.resolve(__dirname, "dist")
   },
   resolve: {
-    modules: [path.resolve(process.cwd(), "src"), "node_modules"]
+    modules: [
+      path.resolve(process.cwd(), "src"),
+      "node_modules",
+      "type-definitions"
+    ]
   },
   module: {
     rules: [

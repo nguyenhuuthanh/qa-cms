@@ -1,38 +1,38 @@
 // @flow
 import React, { type Node } from 'react';
-import type { Size } from 'bulmaType';
+import type { Size, Color } from 'bulma-type';
 import classNames from 'classnames';
 
 type Props = {
   size?: Size,
-  color?: string,
+  color?: Color,
   fixedWidth?: boolean,
-  stacked?: boolean,
   className?: string,
+  icon: string,
 };
 
-const FAIcon = ({
-  size,
-  color,
-  fixedWidth,
-  stacked,
-  className,
-}: Props): Node => {
-  const sizeClass = ['small', 'medium', 'large'].some(c => c === size)
-    ? `is-${size}`
-    : '';
+const FAIcon = ({ size, color, fixedWidth, className, icon }: Props): Node => {
+  const sizeClass = size ? `is-${size}` : '';
 
-  const colorClass = ['info', 'success', 'warning', 'danger'].some(
-    c => c === size,
-  )
-    ? `is-${size}`
-    : '';
+  const colorClass = color ? `is-${color}` : '';
 
-  const iconClass = classNames('icon');
+  const fixedClass = fixedWidth ? `fa-fw` : '';
+
+  const iconSpanClass = classNames(
+    'icon',
+    className,
+    sizeClass,
+    colorClass,
+    fixedClass,
+  );
+
+  const iconClass = classNames('fas', icon);
 
   return (
-    <span className="icon">
-      <i className="fas fa-home" />
+    <span className={iconSpanClass}>
+      <i className={iconClass} />
     </span>
   );
 };
+
+export default FAIcon;

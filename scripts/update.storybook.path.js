@@ -11,9 +11,15 @@ const content = glob
   .map(
     p =>
       `require("${path
-        .relative(path.join(__dirname, '../', STORYBOOK_LOCATION), path.resolve(p))
+        .relative(
+          path.join(__dirname, '../', STORYBOOK_LOCATION),
+          path.resolve(p),
+        )
         .replace(/\\/g, '/')}");`,
   )
   .join('\n');
 
-fs.writeFileSync(path.join(__dirname, `../${STORYBOOK_LOCATION}/extraStories.js`), content);
+fs.writeFileSync(
+  path.join(__dirname, `../${STORYBOOK_LOCATION}/extraStories.js`),
+  content,
+);

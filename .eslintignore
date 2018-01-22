@@ -83,7 +83,8 @@ jspm_packages/
 
 # Typescript v1 declaration files
 typings/
-
+flow-typed/
+type-definitions/
 # Optional npm cache directory
 .npm
 
@@ -105,4 +106,3 @@ typings/
 
 
 *.test.*
-*.stories.*
